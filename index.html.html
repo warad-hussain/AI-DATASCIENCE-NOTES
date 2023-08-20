@@ -1,0 +1,772 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Artificial Intelligence &amp; Data Science</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b008b10c-729f-40e6-b2da-6a466be81825" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1485796826113-174aa68fd81b?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="images/icon.png"/></div><h1 class="page-title">Artificial Intelligence &amp; Data Science</h1><p class="page-description"></p></header><div class="page-body"><hr id="09ed3719-1736-43cd-9d56-bf41539d3eeb"/><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="6ddfde37-797d-4d77-b3df-07e4b101292f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Understand all of the topics you should know before diving into AI and Data Engineering/Data Science</strong><br><strong><mark class="highlight-yellow_background">Note: Watch videos first then go through the written content!</mark></strong></div></figure><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/F1LktIJKjAg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><h3 id="8ca51029-b6b8-4362-bc4b-94d55bb8738f" class="">1) <strong>What is AI?</strong></h3><ul id="00079820-0daf-4de6-a634-5ee21c54350c" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition: </strong><p id="7e047946-4013-4204-b6e7-0ad40edd4b12" class="">“ <mark class="highlight-gray_background">AI is like teaching machines to think and act like humans.”</mark></p><p id="3f81d86e-5816-45f1-b68a-c3ad1f571e5c" class="">                                            <strong>OR </strong></p><p id="abbe8990-229a-4373-a379-0181b65308f2" class=""> “<mark class="highlight-gray_background"> AI is like teaching machines to think, learn, and act like humans.”</mark></p><p id="75ddb467-934e-4369-91f2-d770a8b48978" class="">
+</p></li></ul><ul id="81b56ad3-c12a-4b8b-8917-9dec2d5e9cbb" class="bulleted-list"><li style="list-style-type:disc"><strong>Example: </strong><p id="b502778f-98af-467d-ab3f-86d303e5146d" class=""><strong>“</strong> <mark class="highlight-gray_background">Think of Siri or Alexa. When you ask them a question, they understand and respond, almost like talking to a friend. That&#x27;s AI in action! </mark>“</p><p id="a822c154-bc36-46be-852f-b795ee5df2ca" class="">                                                                  <strong>OR</strong></p><p id="a65f634b-4666-4938-bc10-7b0513db07ea" class=""> “<mark class="highlight-gray_background">Think of a smart thermostat in your home. At first, it just follows your settings. But over time, it &quot;learns&quot; when you&#x27;re usually home or away and adjusts the temperature on its own to save energy and keep you comfortable. It&#x27;s like the thermostat goes to &quot;school&quot; every day, learning more about your habits.</mark>”</p></li></ul><p id="b8681595-9335-4ebb-af4c-634fb06e1eb5" class="">
+</p><p id="fe609eb0-c775-46c6-8257-04912c30e89f" class="">
+</p><h3 id="f326420d-8265-4778-80c9-cbfdb80daa96" class="">2) <strong>What is Model Training?</strong></h3><ul id="bc4fa176-ce77-439f-98e2-296812800208" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition: </strong><p id="f43d79e2-14d8-4ca6-ad34-876d48aacec6" class="">“<mark class="highlight-gray_background">It&#x27;s like teaching a child. You show them many examples until they learn and understand.”</mark><div class="indented"><p id="22db5060-affa-4fab-ae96-0067aab548a3" class="">                                                                <strong>OR</strong></p></div></p></li></ul><p id="d0486521-5141-4537-ae0f-c1e2f7724fdb" class="">       “<mark class="highlight-gray_background">It&#x27;s like teaching a child through repetition. The more they practice, the better they get.</mark> “</p><ul id="77f54114-8fa2-419a-9070-a44b138e81a6" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong><p id="09be2f6f-30df-46a5-8dfc-60d2e5d66c69" class="">“ <mark class="highlight-gray_background">Imagine teaching a puppy to fetch a ball. At first, the puppy might not get it, but after showing it several times, it learns. Similarly, we &quot;teach&quot; computers by showing them lots of data until they &quot;learn&quot; to do tasks on their own.”</mark><div class="indented"><p id="9a3832d5-00e8-4314-b856-2737f88d19df" class="">                                                                <strong>OR</strong></p></div></p><p id="0a40e8b0-906c-42b0-a2be-0b54ededb6e7" class="">“ <mark class="highlight-gray_background">Remember when you learned to ride a bike? At first, you might have fallen off a few times. But with practice (and maybe some scraped knees), you got better. In the computer world, we give the machine lots of examples (data) to &quot;practice&quot; with until it &quot;learns&quot; to get things right on its own.</mark> “</p></li></ul><p id="ce25035e-722c-443f-8b02-554071d66484" class="">
+</p><h3 id="9704003f-80d0-46e4-8e6f-205f420daa1a" class="">3) <strong>What is Data?</strong></h3><ul id="8a36dbbf-7d28-4721-a29a-f4e831d07ab3" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition: </strong><p id="892d8635-9fa5-4383-a779-890ca11272cd" class="">“ <mark class="highlight-gray_background">Data is like the information or experiences we use to learn and make decisions. </mark>“<div class="indented"><p id="5013c9b5-bbbf-4c33-ae22-fd9f61ef6a1a" class="">                                                              <strong>OR</strong></p></div></p><p id="69912047-8a0c-425b-8d43-985ea2624ac3" class="">“ <mark class="highlight-gray_background">Data is like the lessons or experiences we use to learn new things.</mark> “</p></li></ul><ul id="a6dbe20e-a6db-4520-b3bf-172ae6d733a4" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong><p id="6467a5d1-586f-4c89-a0aa-e5f618eda32f" class="">“ <mark class="highlight-gray_background">Think of your photo album. Each photo tells a story or memory. In the world of computers, these photos (and other things like texts, numbers, etc.) are called data. Just like we use memories to make decisions (like revisiting a vacation spot), computers use data to make decisions or predictions.</mark> “<div class="indented"><p id="0f0dce30-b581-4b65-9313-dcf292db6c57" class="">                                                               <strong>OR</strong></p></div></p><p id="ec5b7f65-2d57-43b1-b367-853826e28542" class="">“ <mark class="highlight-gray_background">Think of cooking. The first time you try a recipe, you follow it step by step. That recipe is like &quot;data.&quot; The more you cook, the more you learn from different recipes (more data), and soon, you might start making dishes without even looking at a recipe. Similarly, computers need lots of &quot;recipes&quot; (data) to learn and make decisions.</mark> “</p><p id="f90a55f8-175e-4a7d-a1bf-832349cf24fd" class="">
+</p><p id="306355e2-b44a-4da7-91f5-0126ca4a7111" class="">
+</p><hr id="6de62b1d-78a0-4f5e-baef-8eaa5332dd0b"/><h3 id="a1789b6c-1cc3-4473-9649-5d4f2d9e1e46" class="">Difference between Training, Validation and Testing Datasets</h3><br><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xAcELTJnnMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><p id="451e170c-0452-43f6-8481-9b382c2b724e" class="">
+</p><p id="320cc03b-cfce-4672-988b-ce1e87ba62d3" class="">
+</p><ol type="1" id="c2e3bcea-b185-4f5d-8b72-6958749a35c8" class="numbered-list" start="1"><li><strong>How to Segregate Datasets?</strong><ul id="bae48885-7acb-4acf-a253-d1ccff10fdf8" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong> <p id="56eb0509-ca41-4216-98c4-f12a4df62805" class=""><mark class="highlight-gray_background">It&#x27;s like sorting out your clothes into different categories.</mark></p></li></ul><ul id="f2845bc0-521d-4a09-9bae-46bf4ad4c4c7" class="bulleted-list"><li style="list-style-type:disc"><strong>Real-World Example:</strong> <p id="fd18412f-cb6f-4b7d-86c4-0aed5a3c0103" class=""><mark class="highlight-gray_background">Imagine you&#x27;re packing for a trip. You separate your clothes into categories: shirts, pants, socks, etc. Similarly, in the world of computers, we separate our data into different sets for specific purposes: training, validation, and testing.</mark></p><p id="6a98839d-bc15-4763-a99e-97f94d31d484" class="">
+</p></li></ul></li></ol><ol type="1" id="712a013c-1c27-4e37-b8ce-9371e16120da" class="numbered-list" start="2"><li><strong>What is Training Data?</strong><ul id="8fcefbe9-1ae7-4518-993b-f510007e5120" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong><p id="5ea47251-5a91-44de-a52d-0b79aa6472ba" class=""><mark class="highlight-gray_background"> This is the information we first give to the computer to teach it something.</mark></p></li></ul><ul id="5f79d721-c9de-49f5-8ca6-6ef26fd217d2" class="bulleted-list"><li style="list-style-type:disc"><strong>Real-World Example:</strong> <p id="d1a7fa33-213d-44b8-8e46-02b3004cdf66" class=""><mark class="highlight-gray_background">Think of it as the basic lessons in school. In math class, you first learn addition and subtraction using simple numbers. This foundational knowledge is like the training data for computers. It&#x27;s what they start with to learn a task.</mark></p><p id="15364083-c709-4eff-a332-d4a5aba84150" class="">
+</p></li></ul></li></ol><ol type="1" id="d407e259-486c-4ad8-a79e-7c4656b920d5" class="numbered-list" start="3"><li><strong>Why we Validate Data?</strong><ul id="71e39c5f-6c8a-40ed-8adb-f8da2979ebd3" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong> <p id="3a60074a-2ac9-445a-9481-0592e47a0e26" class=""><mark class="highlight-gray_background">Validation is like a practice test before the final exam. It helps us see if the computer is learning correctly.</mark></p></li></ul><ul id="75ab162b-0716-48a7-acef-c8f6964ca7e3" class="bulleted-list"><li style="list-style-type:disc"><strong>Real-World Example:</strong> <p id="d7a11aa8-e371-4f81-aaaa-85488e8cd197" class=""><mark class="highlight-gray_background">Remember taking practice tests before the real exam in school? These tests helped you understand where you were doing well and where you needed more study. Validating data does the same for computers. It helps us check if they&#x27;re on the right track or if they need more &quot;lessons.&quot;</mark></p><p id="71939a5f-9e1a-4802-aea3-8bc7eb1c0a91" class="">
+</p></li></ul></li></ol><ol type="1" id="be576629-4681-4627-a440-6c584c4c979b" class="numbered-list" start="4"><li><strong>What is Testing Data?</strong><ul id="05192f46-0518-49dc-b0ff-cdbdc2854a79" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong> <p id="0126b0f4-babe-4728-8608-7b421e8117f6" class=""><mark class="highlight-gray_background">This is the final exam for the computer to see how well it has learned from the training.</mark></p></li></ul><ul id="d922952d-7e13-4ee7-8f7b-f0d5e2266a3e" class="bulleted-list"><li style="list-style-type:disc"><strong>Real-World Example:</strong> <p id="5f98cdbb-c618-46ea-be52-194dd103003d" class=""><mark class="highlight-gray_background">After all your lessons and practice tests in school, you have the final exam. It&#x27;s a new set of questions you haven&#x27;t seen before to truly test your knowledge. Testing data is like this final exam for computers. It&#x27;s a new set of data they haven&#x27;t &quot;seen&quot; before to check how well they&#x27;ve learned.</mark></p></li></ul></li></ol><p id="3a0c7a2e-c2ea-46bc-89ff-47e2b4807486" class="">
+</p></li></ul><p id="23383156-4e99-4ff9-96e1-19468db59e0f" class="">
+</p><p id="7b89b146-aed8-4651-92f2-6832ab89fbd1" class=""><strong>If you haven’t understand it completely or have some confusions so just try to understand this real world example:</strong></p><p id="8d507c2e-11a5-4726-9f9f-d5c5d92c9094" class=""><strong>Imagine you&#x27;re training for a big marathon race.</strong></p><ol type="1" id="cfed7e6b-03b2-4038-b177-cd4a7f47841f" class="numbered-list" start="1"><li><strong>Training Dataset:</strong><ul id="a661b140-48dc-403d-8dc5-fa91fb3dd199" class="bulleted-list"><li style="list-style-type:disc"><strong>Analogy:</strong> <p id="daf30dd9-ce8b-407b-b589-a0f94a8bc47f" class=""><mark class="highlight-gray_background">This is like your regular practice runs. You run every day, learn from your mistakes, adjust your pace, and improve your stamina. These daily runs help you get better and prepare for the race.</mark></p></li></ul><ul id="eb71ba7b-b930-44bf-8864-4b47fb3e9ca0" class="bulleted-list"><li style="list-style-type:disc"><strong>In Machine Learning:</strong> <p id="09d557d9-91fd-4297-a03a-6a79974c0a8e" class=""><mark class="highlight-gray_background">The training dataset is used to &quot;teach&quot; the machine learning model. It&#x27;s the data on which the model learns and adjusts itself to get better at making predictions or classifications.</mark></p></li></ul><p id="6af71adc-7b3d-419d-a5fc-dd6f81df4867" class="">
+</p></li></ol><ol type="1" id="02b3df79-08f2-4987-b265-05a27f35912c" class="numbered-list" start="2"><li><strong>Validation Dataset:</strong><ul id="a8d440fe-1aa6-4db8-b734-3e38b774e56c" class="bulleted-list"><li style="list-style-type:disc"><strong>Analogy:</strong> <p id="219d398c-2e68-4f82-b05a-7b05ff7c80d4" class=""><mark class="highlight-gray_background">Before the big race, you might participate in a few smaller races or time trials. These aren&#x27;t the main event but help you understand where you stand and what you need to improve.</mark></p></li></ul><ul id="acce8099-8221-4669-a873-c7f9ea7c1284" class="bulleted-list"><li style="list-style-type:disc"><strong>In Machine Learning:</strong> <p id="66ac4bac-5bdc-4da1-bda8-4c40e2d23a32" class=""><mark class="highlight-gray_background">The validation dataset helps &quot;tune&quot; the model. After learning from the training data, the model is tested on the validation data to see how well it&#x27;s doing. If it&#x27;s not doing well, we make adjustments. This helps in preventing the model from just memorizing the training data (overfitting) and ensures it can generalize well to new, unseen data.</mark></p></li></ul><p id="d9863fba-4015-46b8-9fa8-d158d8bee5c6" class="">
+</p></li></ol><ol type="1" id="b0a72296-8b9f-4e94-b27f-153970eebcb5" class="numbered-list" start="3"><li><strong>Test Dataset:</strong><ul id="bf278a8b-aed5-4885-a58d-c6cf76ac248e" class="bulleted-list"><li style="list-style-type:disc"><strong>Analogy:</strong> <p id="edd70f74-7399-4d40-b999-7927c5e4cf2e" class=""><mark class="highlight-gray_background">This is the big marathon race day. After all your practice and smaller races, you test your skills in the actual event. It&#x27;s the ultimate test of your training.</mark></p></li></ul><ul id="f9b7a883-4cc8-47ac-974f-fc9b473564ff" class="bulleted-list"><li style="list-style-type:disc"><strong>In Machine Learning:</strong><p id="0c801685-6695-4207-9c9c-1e0b6c1ea90d" class=""><mark class="highlight-gray_background">The test dataset is used to evaluate how well the model will perform in the &quot;real world.&quot; It&#x27;s data the model has never seen before. A good performance on the test data indicates that the model has learned well and is ready for real-world tasks.</mark></p></li></ul><p id="6c0eecd0-476e-4891-af9f-302db795978c" class="">
+</p></li></ol><p id="3fbe27b6-4243-465d-8c63-4f4d4936bf74" class=""><strong>In Summary:</strong> Just like you&#x27;d prepare for a marathon with daily practice, trial runs, and then the main event, machine learning models &quot;prepare&quot; using training, validation, and test datasets to ensure they&#x27;re ready for real-world challenges.</p><p id="40df14f3-165a-465e-8369-3d2887a15ce6" class="">
+</p><p id="bf6aa093-839a-40b0-9c31-e8954c5941c0" class="">
+</p><p id="cbff7953-a53f-42f4-a06f-f2d07c8e75d2" class="">
+</p><h2 id="eb35dc96-e564-4d24-be7b-bc05f05f747b" class=""><strong>&quot;Data Splitting in Machine Learning&quot; </strong> or  <strong>&quot;Training, Validation, and Test Data Splitting&quot;</strong></h2><p id="a7173eaf-e21a-448f-ac93-23f39d6020bd" class="">
+</p><p id="185ed500-4794-4ace-9a63-ce67de3cbbf4" class="">The <strong>exact percentage</strong> split between training, validation, and test datasets can <strong>vary based</strong> on the specific problem, the<strong> amount of available data</strong>, and the <strong>model being used</strong>. However, a common rule of thumb for splitting datasets is:</p><ol type="1" id="6fb05c55-d40f-425d-a21c-67f1f3501dd4" class="numbered-list" start="1"><li><strong>Training Dataset:</strong><ul id="80ffc9f5-93c3-4ec2-a9b8-73c3963fbbe0" class="bulleted-list"><li style="list-style-type:disc"><strong>Percentage:</strong> <p id="777d5665-394b-436a-9459-504586c990e6" class=""><mark class="highlight-gray_background">Typically, 60-80% of the total data.</mark></p></li></ul><ul id="97024cdc-15f9-4435-be46-ab2ab5c39c59" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose:</strong> <p id="3700d806-945f-4d43-9fbf-d0f1e21ea705" class=""><mark class="highlight-gray_background">This is the largest portion because the model needs ample data to learn the underlying patterns.</mark></p><p id="45af7da1-9632-43ea-9742-340d6939441e" class="">
+</p></li></ul></li></ol><ol type="1" id="e115f43e-857d-46f7-b86a-0bad8affb65e" class="numbered-list" start="2"><li><strong>Validation Dataset:</strong><ul id="13670c17-9754-469e-84c1-072572ef472a" class="bulleted-list"><li style="list-style-type:disc"><strong>Percentage:</strong> <p id="df1e13d5-c201-49c9-916c-badc6ad3e1f5" class=""><mark class="highlight-gray_background">Around 10-20% of the total data.</mark></p></li></ul><ul id="070c7520-9b44-400a-ac35-098750cdef3f" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose:</strong> <p id="372b3f70-6d2d-4be2-98f0-4200123e8cef" class=""><mark class="highlight-gray_background">Used to tune model parameters and prevent overfitting. It helps in model selection and in deciding when to stop training (early stopping).</mark></p><p id="0e6df433-07b1-44ba-be8e-88644fafd406" class="">
+</p></li></ul></li></ol><ol type="1" id="b9382c5f-84a6-4eb4-bb2e-af933f6b1291" class="numbered-list" start="3"><li><strong>Test Dataset:</strong><ul id="e2e24f2c-05af-4233-a5f0-b50be4ce59b0" class="bulleted-list"><li style="list-style-type:disc"><strong>Percentage:</strong> <p id="8b355a88-def2-4bb4-a8bf-276f020ab388" class=""><mark class="highlight-gray_background">Around 10-20% of the total data.</mark></p></li></ul><ul id="c4733d39-39ef-462e-a8dd-8cdbba345ce7" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose:</strong> <p id="db9383b9-c310-4909-b708-14293e3c1750" class=""><mark class="highlight-gray_background">To evaluate the model&#x27;s performance on unseen data. This dataset is kept separate and is only used once the model is fully trained and tuned.</mark></p><p id="767d954f-dd82-4ae2-b900-ec2d6e4bdd26" class="">
+</p></li></ul></li></ol><p id="9031c860-7704-40e7-9787-4231836422b5" class=""><strong>Example:</strong> For a dataset of 1,000 samples:</p><ul id="724ef14c-3912-43fc-9adc-5a2dcd694320" class="bulleted-list"><li style="list-style-type:disc">700 samples might be used for training.</li></ul><ul id="4fe2d55c-b1fa-4b64-b6a3-d26ded581c15" class="bulleted-list"><li style="list-style-type:disc">150 samples for validation.</li></ul><ul id="477e5332-b4c2-4c93-8cbf-312eb8cc6af8" class="bulleted-list"><li style="list-style-type:disc">150 samples for testing.</li></ul><p id="1b7bf3f6-3c66-45bb-b5e5-ce573a8dd9cc" class="">It&#x27;s worth noting that these are general guidelines, and the exact split can vary. In some cases, especially with large datasets, even a smaller percentage (like 1-5%) set aside for validation and testing can be sufficient. Additionally, techniques like k-fold cross-validation can be used, where the dataset is divided into &#x27;k&#x27; subsets, and the model is trained and validated multiple times, rotating the validation set each time.</p><p id="92a9aeb8-05d3-4ff1-8411-855dc67633c0" class="">Ultimately, the goal is to ensure that the model is well-trained, fine-tuned, and accurately evaluated, so the specific percentages might be adjusted based on the needs of the project.</p><p id="fc09b950-a06c-4b01-a078-316a8729d7b1" class="">
+</p><p id="2676ee36-a9c0-4063-aa34-c73fc10ad350" class="">
+</p><p id="09790d0a-41b2-4787-9178-14ca2f1b76ed" class=""><strong>now, for the better understanding, try to understand this real world example:</strong></p><p id="53af9527-eae6-4e17-8087-932af2bd7977" class=""><strong>Imagine you have a big box of 100 chocolates, and you want to share them with your friends in a specific way:</strong></p><ol type="1" id="e1a5b398-e2d3-4cf8-adb0-a355f9a99579" class="numbered-list" start="1"><li><strong>Training Chocolates:</strong><ul id="a8929eeb-7a57-45e8-ace8-ac006ca29a73" class="bulleted-list"><li style="list-style-type:disc"><strong>How many:</strong> <p id="801e1725-0a1e-4ae7-9bc1-0ac01a34adc1" class=""><mark class="highlight-gray_background">70 chocolates (70% of the box).</mark></p></li></ul><ul id="59c50d63-b54b-4225-991f-e4332d6ada3e" class="bulleted-list"><li style="list-style-type:disc"><strong>Why:</strong> <p id="1f10123e-fd55-4808-b7a7-8779659bb180" class=""><mark class="highlight-gray_background">This is like the main portion you use to practice a game. The more you practice, the better you get. In machine learning, we use most of the data to &quot;teach&quot; the computer.</mark></p></li></ul><p id="80af41fa-3c3d-4d1c-b8f1-c46b346d7177" class="">
+</p></li></ol><ol type="1" id="e1dc2621-b86d-4804-851c-c0771020bb7e" class="numbered-list" start="2"><li><strong>Validation Chocolates:</strong><ul id="cff41174-7287-40d5-b214-81a31e00d33a" class="bulleted-list"><li style="list-style-type:disc"><strong>How many:</strong> <p id="842b31a4-3b2f-4ca2-8ac7-1f22da939272" class=""><mark class="highlight-gray_background">15 chocolates (15% of the box).</mark></p></li></ul><ul id="aa712119-7a81-4aa6-a6ea-08e4351d6568" class="bulleted-list"><li style="list-style-type:disc"><strong>Why:</strong> <p id="c68c17c5-6ba5-401c-a76b-034b9cfb7eb6" class=""><mark class="highlight-gray_background">Think of this as a small game before the big tournament. It helps you see if you&#x27;re ready or if you need more practice. In machine learning, this smaller portion of data helps us check if the computer is learning well.</mark></p></li></ul><p id="cfa492d7-cd09-45b0-8e68-c451544ebfc1" class="">
+</p></li></ol><ol type="1" id="82bffec4-7bf9-4ca5-b639-123c5b9b926a" class="numbered-list" start="3"><li><strong>Test Chocolates:</strong><ul id="44a0126c-a65d-46d6-94e8-91c9f3f06415" class="bulleted-list"><li style="list-style-type:disc"><strong>How many:</strong> <p id="d6ff3296-4ccd-4c8a-9040-e6b2c162adca" class=""><mark class="highlight-gray_background">15 chocolates (15% of the box).</mark></p></li></ul><ul id="d68b55af-6d50-4839-8a6f-1d6b76c65926" class="bulleted-list"><li style="list-style-type:disc"><strong>Why:</strong> <p id="8ba85760-66cb-4818-ad62-446792d36098" class=""><mark class="highlight-gray_background">This is like the big tournament. After all your practice and small games, you see how good you really are. In machine learning, this part tests how well the computer has learned from all the previous data.</mark></p></li></ul><p id="c284dd3b-b891-46f7-a12e-279e54579e86" class="">
+</p></li></ol><p id="3732add8-4d2d-40d7-883f-ef0e307c14f5" class=""><strong>In Simple Words:</strong> Just like you&#x27;d divide chocolates for different purposes, in machine learning, we divide our data into three parts: one big part for learning (training), a smaller part to check our progress (validation), and another small part to test our final skills (testing).</p><p id="74040dbe-824b-4fc4-b300-716a1a0d7b09" class="">
+</p><hr id="63106db0-d770-4922-b40e-252904757b79"/><blockquote id="8908936b-1de6-42c2-9944-026d53c5bd0b" class=""><strong>Data is simply another word for information, and data is one of the most important features for every data scientist.</strong></blockquote><br><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/VrqiL-Irgz4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><h2 id="0b0dcfe9-781d-49ec-b889-51fae3c11613" class="">1) What is Labelled &amp; Unlabeled data?</h2><p id="fc7f8e77-b4aa-45fe-b3ea-d715bfa46007" class=""> </p><ol type="1" id="b3c8c3d2-4dfa-481a-be40-b6cdc3d4a05f" class="numbered-list" start="1"><li><strong>Labelled Data:</strong><ul id="32e513e7-7f24-48ed-9758-6d2305e5047b" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong> <p id="e7ccd63d-e916-4933-81d0-9cfa6ff89eba" class=""><mark class="highlight-gray_background">Labelled data is like a tagged photo album. Each photo has a name or tag telling you who or what is in the picture.</mark></p></li></ul><ul id="00fdbc8b-ae49-412d-87bc-4c9482927864" class="bulleted-list"><li style="list-style-type:disc"><strong>Details:</strong><p id="934042f2-d17d-4ca2-9455-7974190edeb7" class=""><mark class="highlight-gray_background"> In the context of data, &quot;labelled&quot; means each piece of data (or example) has a known answer or label. For instance, in a dataset of animal pictures, each picture will have a label like &quot;cat,&quot; &quot;dog,&quot; or &quot;bird.&quot;</mark></p></li></ul><p id="b7d18c9b-09f4-4382-976a-e5fb698957e6" class="">
+</p></li></ol><ol type="1" id="e6bc7c91-74cb-4522-8dcb-93c6ec3345f2" class="numbered-list" start="2"><li><strong>Unlabeled Data:</strong><ul id="18bfe275-aece-4603-a899-4bcec3ab6142" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong> <p id="613f5baa-e18b-4b89-9e2a-e581f3815e55" class=""><mark class="highlight-gray_background">Unlabeled data is like an untagged photo album. You have the photos, but there are no names or tags. You have to figure out who or what is in the picture yourself.</mark></p></li></ul><ul id="aaca1f0b-21d3-47be-9835-ebdac6c2e2d9" class="bulleted-list"><li style="list-style-type:disc"><strong>Details:</strong> <p id="a0b915a9-210e-4b98-a4e1-fd9bd5de2bd2" class=""><mark class="highlight-gray_background">This data doesn&#x27;t have any answers or labels attached. Using the same animal pictures example, you&#x27;d have the images, but you wouldn&#x27;t know which animal is in each picture.</mark></p></li></ul></li></ol><h2 id="0756f889-c152-4336-87ba-62603926ca07" class="">2) What is Supervised &amp; Unsupervised learning?</h2><p id="d75e7431-2a0a-478d-9c3c-b544b9509591" class="">
+</p><ol type="1" id="bcf1e09b-94c3-4451-9bfc-46a35e611fda" class="numbered-list" start="1"><li><strong>Supervised Learning:</strong><ul id="7c97ef72-9940-49f1-ab9b-049db7bf5bd6" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong> <p id="c23e9f02-bbe1-48ac-a635-0ed47b8dad0c" class=""><mark class="highlight-gray_background">It&#x27;s like learning with a teacher. You&#x27;re given a question and the correct answer, and you learn from it.</mark></p></li></ul><ul id="1adf1d63-8e5a-49c9-b05e-a7fb04be91e3" class="bulleted-list"><li style="list-style-type:disc"><strong>Details:</strong> <p id="7440261e-adac-4150-b032-cccc6b7389dd" class=""><mark class="highlight-gray_background">In supervised learning, we use labelled data. The model is &quot;taught&quot; using data where we already know the answer. For example, if we want a model to learn to identify animals, we&#x27;d show it pictures of animals (the data) along with the animal&#x27;s name (the label). Over time, the model learns to recognize animals on its own.</mark></p></li></ul><p id="fad10eb7-e495-4f4f-86ca-8324d4c16fe2" class="">
+</p></li></ol><ol type="1" id="1eb91bff-e4db-416e-b9ae-563c5ac291e1" class="numbered-list" start="2"><li><strong>Unsupervised Learning:</strong><ul id="d5dbafb4-cd1d-42d8-a0e2-31b2ebbcba89" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong> <p id="72329ecd-7de0-487b-9898-a1a1ab48cb8a" class=""><mark class="highlight-gray_background">It&#x27;s like learning through exploration without a teacher. You try to find patterns or groups on your own.</mark></p></li></ul><ul id="4edab8f3-3181-420f-9246-8e1d72fbc92c" class="bulleted-list"><li style="list-style-type:disc"><strong>Details:</strong> <p id="8772846f-372f-4d0d-ab6d-bfad8fe42560" class=""><mark class="highlight-gray_background">In unsupervised learning, we use unlabeled data. The model tries to find patterns or groupings in the data without any prior knowledge. For instance, if we give the model a mix of different animal pictures without names, it might group them based on similarities, like all birds in one group and all mammals in another.</mark></p></li></ul><p id="637efecf-b303-4589-856a-ab066a552767" class="">
+</p></li></ol><p id="8d08c971-4fcc-4f51-99dd-5ff5a509c37c" class=""><strong>In Summary:</strong> Labelled data has answers attached, and unlabeled data doesn&#x27;t. Supervised learning is like studying with a guide or teacher using labelled data, while unsupervised learning is like exploring and discovering on your own using unlabeled data.</p><p id="ac931d51-580c-42d8-b82c-2b01d43235b7" class="">
+</p><hr id="eb9c6386-3e68-4ab1-adab-2811b99a0678"/><p id="93cb0e79-d143-4c16-965b-d2132821b91f" class="">
+</p><blockquote id="f5c08472-be08-4c06-8682-9ce18e1debc8" class=""><strong>Data and AI have a synergistic relationship. AI requires a massive scale of data to learn and improve decision-making processes.</strong></blockquote><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ve9svxwzmyE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br><p id="5362a983-6f4e-42c6-afb9-8b668e98d645" class=""><strong>So, understand some of this key factors about data:</strong></p><ol type="1" id="f71f040c-f699-46b0-9808-32ccd62a9186" class="numbered-list" start="1"><li><strong>AI Algorithms That We Must Know:</strong><ul id="af3b272b-d190-472e-865f-c06daa5aa842" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong> <p id="0287ca34-f3df-4b36-9349-1f2de5da42ab" class=""><mark class="highlight-gray_background">These are like the &quot;recipes&quot; that AI uses to learn and make decisions.</mark></p></li></ul><ul id="70bb1a20-a77e-45ca-8f3d-4eda0a3b964b" class="bulleted-list"><li style="list-style-type:disc"><strong>Details:</strong> <p id="544b2130-7198-4ef4-8680-e9befbcfd126" class="">Some key algorithms include:</p><ul id="2743185c-278d-410e-912c-b9b586222dc5" class="bulleted-list"><li style="list-style-type:circle"><strong>Linear Regression:</strong> <p id="582b27b7-74f3-499b-8301-1f161fd5acc1" class=""><mark class="highlight-gray_background">Predicting a continuous value (e.g., house prices).</mark></p></li></ul><ul id="ff7888c6-2c1b-496d-aebd-8e6f25813f5b" class="bulleted-list"><li style="list-style-type:circle"><strong>Decision Trees:</strong> <p id="e59f910b-c800-474f-b764-e8822ae0d147" class=""><mark class="highlight-gray_background">Making decisions based on asking a series of questions.</mark></p></li></ul><ul id="91d009cc-1c87-412e-80da-72349dde4151" class="bulleted-list"><li style="list-style-type:circle"><strong>Neural Networks:</strong> <p id="a07fce6a-cc5a-4c2d-93d0-03cf37b15184" class=""><mark class="highlight-gray_background">Inspired by the human brain, used for complex tasks like image recognition.</mark></p></li></ul><ul id="46d728d4-effd-4106-88b4-b920822bba02" class="bulleted-list"><li style="list-style-type:circle"><strong>Clustering Algorithms:</strong> <p id="c8862799-baa5-409f-ab97-ece8acb4295d" class=""><mark class="highlight-gray_background">Grouping similar items together (e.g., customer segmentation).</mark></p></li></ul><p id="fc1c9d74-b116-40db-8512-26a3eaac4ab1" class="">
+</p></li></ul></li></ol><ol type="1" id="bd500a84-b06d-4fac-a334-45a1e2fbd498" class="numbered-list" start="2"><li><strong>Importance of Data in Model Training:</strong><ul id="79f44160-2510-47ce-a4e0-bb067b3592f3" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong> <p id="68a50747-2a8c-40ac-be5e-27d90cb69f90" class=""><mark class="highlight-gray_background">Data is like the textbook for AI. Without it, AI can&#x27;t learn.</mark></p></li></ul><ul id="29794c02-eefc-42f0-b4fe-ef6e10988cac" class="bulleted-list"><li style="list-style-type:disc"><strong>Details:</strong> <p id="4cc3c020-8b0f-4379-871b-1abeb33e5d83" class=""><mark class="highlight-gray_background">Just as students need textbooks to study and learn, AI models need data to understand patterns and make predictions. The quality and quantity of data directly influence how well an AI model will perform.</mark></p></li></ul><p id="dac6a3df-9247-407c-9e4f-f79deac18d95" class="">
+</p></li></ol><ol type="1" id="8ffef9a7-0cd8-4a19-b35e-91987be93727" class="numbered-list" start="3"><li><strong>How is Your Personal Data Used for Model Training?</strong><ul id="8fe8e926-1819-4a85-a322-fcd990c673b4" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong> <p id="90ce98da-88b9-441d-9641-1620d189e406" class=""><mark class="highlight-gray_background">Your data, like online behavior or purchases, can be used to &quot;teach&quot; AI models to understand patterns and preferences.</mark></p></li></ul><ul id="ae5a7c3f-12e7-4dd0-b466-c68b49e7295a" class="bulleted-list"><li style="list-style-type:disc"><strong>Details:</strong><p id="5d35780d-f093-4ab4-9962-a0bcef148d82" class=""><mark class="highlight-gray_background"> Companies might use your data (often anonymized) to improve their services or products. For instance, streaming services use your watch history to recommend shows. However, there are privacy concerns, and regulations ensure that personal data is used ethically and securely.</mark></p></li></ul><p id="2bc92f73-3096-4de4-a952-3bbf704a4fcc" class="">
+</p></li></ol><ol type="1" id="a88ebed4-4272-4e04-bb31-69532ad18468" class="numbered-list" start="4"><li><strong>Types of Data:</strong><ul id="25744228-ad0b-4303-a251-660474253896" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong><p id="f394be09-b2bf-47db-9a0b-3522c222576f" class=""><mark class="highlight-gray_background"> Just as there are different genres of books, there are different types of data.</mark></p></li></ul><ul id="e1d79b5c-a258-4e1e-b151-878223ec7f8f" class="bulleted-list"><li style="list-style-type:disc"><strong>Details:</strong><ul id="6c918c2f-729b-430f-82c8-eadc37b6b761" class="bulleted-list"><li style="list-style-type:circle"><strong>Structured Data:</strong> <p id="c523f5c4-854d-4ea8-9fe2-bac03c9b6a49" class=""><mark class="highlight-gray_background">Organized data, like spreadsheets with rows and columns (e.g., customer databases).</mark></p></li></ul><ul id="872d4b49-b471-4967-a622-69757075e04f" class="bulleted-list"><li style="list-style-type:circle"><strong>Unstructured Data:</strong> <p id="62dcf0ae-0c96-49d7-9dcf-b6f74b6a1b37" class=""><mark class="highlight-gray_background">Disorganized data, like text, images, or videos (e.g., social media posts).</mark></p></li></ul><ul id="e00c3a0c-b6be-46f9-9ce8-1a8e8b278b35" class="bulleted-list"><li style="list-style-type:circle"><strong>Semi-structured Data:</strong> <p id="a19e9c7d-f359-4762-a2d1-a2fb2e2e94da" class=""><mark class="highlight-gray_background">A mix of both, like emails which have structured elements (to, from, date) and unstructured elements (email body).</mark></p></li></ul><p id="bf7a7463-11bf-4140-8ce7-eb2947459c3f" class="">
+</p></li></ul></li></ol><ol type="1" id="44f4694e-2f68-4eda-8577-6391a91cf5fa" class="numbered-list" start="5"><li><strong>How is Deep Learning Involved in Making Computers Process Information Better?</strong><ul id="da8c1603-631a-4797-8d8b-d7ad381db6fd" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Explanation:</strong> <p id="7527e75a-7058-49cd-af42-f2ba955dae6d" class=""><mark class="highlight-gray_background">Deep learning is like giving the computer a super-powered brain to process information more like humans.</mark></p></li></ul><ul id="a21e3eac-3b67-4f94-9ad8-ce3316a447a7" class="bulleted-list"><li style="list-style-type:disc"><strong>Details:</strong> <p id="10ebdc47-1401-4e22-8984-66b7324c32eb" class=""><mark class="highlight-gray_background">Deep learning, a subset of AI, uses neural networks with many layers (hence &quot;deep&quot;) to process data. It&#x27;s especially good for tasks like image and speech recognition. For instance, deep learning powers the technology behind voice assistants and facial recognition systems.</mark></p></li></ul><p id="1f81b8e8-516d-44f9-a1a2-2c5e3c522df9" class="">
+</p></li></ol><p id="98c24837-e3d4-49d6-990c-34f2084deaf8" class=""><strong>In Summary:</strong> Data and AI go hand in hand. Data is the foundation for AI to learn, and various algorithms, including deep learning, help process this data to make intelligent decisions. Your personal data, when used responsibly, can help improve AI systems, but it&#x27;s essential to ensure privacy and ethical considerations.</p><p id="b6a02dba-76e3-4862-b37e-0c1f82169358" class="">
+</p><p id="8d66393c-a312-49f5-a0a2-889b1a049ce0" class=""><strong>If you haven’t understand the above explanation so try to understand this one: </strong></p><ol type="1" id="3411ff8a-b9d3-4074-8587-cae737c404fa" class="numbered-list" start="1"><li><strong>AI Algorithms We Should Know:</strong><ul id="f1a624cb-4e11-4bc3-a88e-3ce2781adb00" class="bulleted-list"><li style="list-style-type:disc">Think of algorithms like different recipes for cooking.<ul id="50f798be-e2f3-4db9-b0d9-4ec5ac5941e4" class="bulleted-list"><li style="list-style-type:circle"><strong>Linear Regression:</strong> <p id="34d0b7f2-0769-499e-a8df-960b83518ed1" class=""><mark class="highlight-gray_background">Predicting something, like guessing the price of a house based on its size.</mark></p></li></ul><ul id="69ef69af-81b4-4f30-9b99-eead47d3ad95" class="bulleted-list"><li style="list-style-type:circle"><strong>Decision Trees:</strong> <p id="6c088367-d341-4e11-84b9-4ef6d8ea89aa" class=""><mark class="highlight-gray_background">Making decisions by asking a series of yes/no questions.</mark></p></li></ul><ul id="0f22cc38-667a-4424-87b3-7c40529cb1b7" class="bulleted-list"><li style="list-style-type:circle"><strong>Neural Networks:</strong> <p id="259ddfab-c56e-444a-baf3-18cf4d0c0201" class=""><mark class="highlight-gray_background">A system inspired by our brain&#x27;s workings, used for more complex tasks.</mark></p></li></ul><ul id="77063963-b942-499c-8575-a9442b091911" class="bulleted-list"><li style="list-style-type:circle"><strong>Clustering Algorithms:</strong> <p id="1f2d9122-4172-4f5c-99ea-0d68a98dfd3e" class=""><mark class="highlight-gray_background">Grouping similar things together, like sorting candies by color.</mark></p></li></ul><p id="6c7ecc4b-531f-43fb-8f88-d6de329477d5" class="">
+</p></li></ul></li></ol><ol type="1" id="46c6428c-d0bf-4d45-8242-ad98887aabcc" class="numbered-list" start="2"><li><strong>Importance of Data in Model Training:</strong><ul id="d0b84256-940b-48db-b1d2-c6fc150e53dd" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Data is like the ingredients for our cooking recipe. Without the right ingredients, our dish won&#x27;t turn out well. Similarly, AI needs the right data to work correctly.</mark></li></ul><p id="58342c61-9e05-4e55-b0d6-d2590e0bbf3c" class="">
+</p></li></ol><ol type="1" id="d9f5c489-fccf-4006-ae47-b14ac1f8af09" class="numbered-list" start="3"><li><strong>How is Your Personal Data Used?</strong><ul id="6f64cbf9-6a6a-453f-9c84-7c7c12526c21" class="bulleted-list"><li style="list-style-type:disc"><strong>Companies:</strong> <p id="b863558c-9723-47a3-943f-87ad39485160" class=""><mark class="highlight-gray_background">Imagine a music app. If it knows what songs you like, it can suggest more songs you might enjoy.</mark></p></li></ul><ul id="33d5f885-5702-40d8-b7dd-2de4c5026323" class="bulleted-list"><li style="list-style-type:disc"><strong>Data Researchers:</strong> <p id="d09bb0df-9872-406b-940d-7ecc4053b4e3" class=""><mark class="highlight-gray_background">These are like the scientists of the data world. They study data to understand patterns but make sure they don&#x27;t reveal your personal secrets.</mark></p></li></ul><p id="4c90ef5d-8d8b-4aad-891a-64aa502e8ea1" class="">
+</p></li></ol><ol type="1" id="9f7ea80f-cfc7-4c18-ab0c-2267fd771259" class="numbered-list" start="4"><li><strong>Types of Data:</strong><ul id="771fe10f-b7b0-49af-9d1a-dd054327b7e9" class="bulleted-list"><li style="list-style-type:disc"><strong>Structured Data:</strong> <p id="40b41797-177c-4e07-baeb-08e0cbe49f58" class=""><mark class="highlight-gray_background">Think of this as a neat, organized bookshelf where every book has its place.</mark></p></li></ul><ul id="5e09b8e6-f3d4-4794-b48a-59864f309299" class="bulleted-list"><li style="list-style-type:disc"><strong>Unstructured Data:</strong> <p id="2f0a6459-a0f9-4656-b3c9-da5f388758e8" class=""><mark class="highlight-gray_background">This is like a messy room with things everywhere - photos, notes, toys, etc.</mark></p></li></ul><ul id="75c5cbad-d5d6-4d85-8489-b42d35fc934a" class="bulleted-list"><li style="list-style-type:disc"><strong>Semi-structured Data:</strong> <p id="774c5a0a-27b6-430e-84af-4916b5752605" class=""><mark class="highlight-gray_background">A mix of both. Imagine a desk with some neat piles of papers and some scattered around.</mark></p></li></ul><p id="42eb053c-32b6-4394-af80-415f25bff0c3" class="">
+</p></li></ol><ol type="1" id="591afa50-29ff-4731-a7f1-547d0e8fa308" class="numbered-list" start="5"><li><strong>Deep Learning and Processing Information:</strong><ul id="4b8a73c1-ee84-410f-bd83-41915a18792d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Before deep learning, computers struggled with messy data, like understanding pictures or human speech. It was like trying to read a book in the dark.</mark></li></ul><ul id="33453762-8a07-479a-a91d-c6ada022b67d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Deep learning is like giving the computer a powerful flashlight. Now, it can see and understand the content of the pictures or recognize what you&#x27;re saying. This &quot;flashlight&quot; is actually a system inspired by our brain, which can process complex information much better than older methods.</mark></li></ul><p id="fc35ef54-4d64-4c3b-8b0f-dfce9f7772aa" class="">
+</p></li></ol><p id="ddff0a4e-e4a4-492a-9436-43687c9b1c30" class=""><strong>In Simple Words:</strong> AI uses different &quot;recipes&quot; (algorithms) to process &quot;ingredients&quot; (data). Just like in cooking, the right recipe and good quality ingredients are crucial. Deep learning is a special &quot;recipe&quot; that has made computers much better at understanding messy and complex data, like photos or voice recordings.</p><p id="e3c3ce19-674c-4e4f-a0b7-df090eb85db6" class="">
+</p><p id="ffb5e8df-1296-43cf-b3e7-daaf3c9c5778" class="">
+</p><p id="2de34aeb-4910-4d91-a377-ba2b47617060" class=""><strong>I hope you understand those above simple explanations. Now, its time to some delve deeper into these same topics with a more detailed approach:</strong></p><p id="fc9db2f1-13ec-422a-813a-c9044e7d46fb" class="">
+</p><ol type="1" id="ba662618-a322-4c7a-8259-85dad14029c4" class="numbered-list" start="1"><li><strong>AI Algorithms That We Must Know:</strong><ul id="0ed37a18-c8ad-457c-9e21-6655fe70c855" class="bulleted-list"><li style="list-style-type:disc"><strong>Linear Regression:</strong><p id="07dbb176-0990-4418-8893-c1bde8fc8747" class=""><mark class="highlight-gray_background"> A statistical method to predict a continuous value. For instance, predicting house prices based on features like size and location.</mark></p></li></ul><ul id="13a83d00-7d5e-46be-b171-c62a05e18d4b" class="bulleted-list"><li style="list-style-type:disc"><strong>Decision Trees:</strong> <p id="fed5a0d9-8867-4c59-bfe4-3e0c6a4a4451" class=""><mark class="highlight-gray_background">A flowchart-like structure where each node represents a feature, each branch represents a decision rule, and each leaf represents an outcome.</mark></p></li></ul><ul id="20e48733-cae8-47e8-8ed3-932d39e7e875" class="bulleted-list"><li style="list-style-type:disc"><strong>Neural Networks:</strong> <p id="36956a6f-4537-4c8f-8cc7-81adbe7e3fdf" class=""><mark class="highlight-gray_background">Computational models inspired by the human brain&#x27;s structure. They consist of layers of interconnected nodes (neurons) and are fundamental for deep learning.</mark></p></li></ul><ul id="9e1a16ba-e5b7-48fe-aa1a-f355612a01f2" class="bulleted-list"><li style="list-style-type:disc"><strong>Clustering Algorithms:</strong> <p id="eb6e6902-be2f-4382-a180-a8c8eaab61b6" class=""><mark class="highlight-gray_background">These algorithms group data points that are similar to each other. K-means is a popular example where data is grouped into &#x27;k&#x27; number of clusters.</mark></p></li></ul><p id="75c88414-ed3a-4fa2-9958-83aebcc8b7f5" class="">
+</p></li></ol><ol type="1" id="15d3aae7-deec-4ff1-9fed-0bf93d12df60" class="numbered-list" start="2"><li><strong>Importance of Data in Model Training:</strong><ul id="e7eb4209-acba-4c7f-83cd-0c6c68ddbf22" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Data is the cornerstone of any AI/ML model. It&#x27;s analogous to the fuel for a car. Without relevant and ample data, an AI model cannot be trained effectively. The quality, diversity, and volume of data determine the model&#x27;s accuracy and reliability.</mark></li></ul><p id="7be52319-0490-4a8b-b7e1-ea123c87bc65" class="">
+</p></li></ol><ol type="1" id="e5c034c4-8936-49d2-be8d-5fb74b80503d" class="numbered-list" start="3"><li><strong>How is Your Personal Data Used for Model Training?</strong><ul id="3a4bb29a-6768-402b-bd69-c7e5609726cb" class="bulleted-list"><li style="list-style-type:disc"><strong>Corporates:</strong> <p id="7e0dbe23-8c11-425e-bd4c-0347ae57cc85" class=""><mark class="highlight-gray_background">Many companies collect user data (with user consent) to improve their services. For instance, Netflix uses viewing histories to recommend shows.</mark></p></li></ul><ul id="8ec5279f-9858-4320-92c4-b7ef9f337f59" class="bulleted-list"><li style="list-style-type:disc"><strong>Data Researchers:</strong> <p id="2aff79d1-ee6d-4bbd-9085-30fb5b1685c3" class=""><mark class="highlight-gray_background">In academia and research, personal data is often used to study patterns, behaviors, and trends. Before using this data, researchers typically anonymize and aggregate it to ensure individual privacy. Ethical guidelines and institutional review boards often oversee such research to ensure data is used responsibly.</mark></p></li></ul><p id="92beef61-86a9-49da-b33c-39a8064acee9" class="">
+</p></li></ol><ol type="1" id="577806fb-bcd5-4012-a200-9f5c8042d0be" class="numbered-list" start="4"><li><strong>Types of Data:</strong><ul id="306d1977-3be1-4203-a2bc-93c92135d8fc" class="bulleted-list"><li style="list-style-type:disc"><strong>Structured Data:</strong> <p id="2c3c933d-8966-4022-b339-dddafa7acfbd" class=""><mark class="highlight-gray_background">This is data that is organized in a defined manner, like in databases. It can be easily queried. Examples include SQL databases.</mark></p></li></ul><ul id="aba95549-c607-4e5a-9343-7c4cd5271cde" class="bulleted-list"><li style="list-style-type:disc"><strong>Unstructured Data:</strong> <p id="b15ca021-e4f5-4223-8925-d8e8231fee90" class=""><mark class="highlight-gray_background">Data that doesn&#x27;t have a specific form or structure. Examples include text documents, images, and videos.</mark></p></li></ul><ul id="7da75914-63e0-48c5-9731-e370ba323d89" class="bulleted-list"><li style="list-style-type:disc"><strong>Semi-structured Data:</strong> <p id="21547a91-1e83-4aeb-9361-92878f61e7c1" class=""><mark class="highlight-gray_background">This is a middle ground between the two. It&#x27;s not as organized as structured data but has some level of structure. Examples include JSON or XML files.</mark></p></li></ul><p id="89ca02f9-38e4-47d5-b22d-ac4695ec43f4" class="">
+</p></li></ol><ol type="1" id="5c7c3b6c-3432-4ae8-8fed-820df7c16ec3" class="numbered-list" start="5"><li><strong>How is Deep Learning Involved in Making Computers Process Information Better?</strong><ul id="575a8816-9b75-46f0-b1a0-58b5e2f0226f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Deep learning is a subset of machine learning that uses neural networks with many layers. These layers allow the model to learn hierarchical features from the data, making it exceptionally good at tasks like image and speech recognition. The &quot;depth&quot; of these networks enables them to capture intricate patterns and nuances in vast datasets, allowing for superior performance in many tasks compared to traditional algorithms.</mark></li></ul><p id="86428ace-7df4-4f7a-adfb-ea8fd31345e5" class="">
+</p></li></ol><p id="b510fea3-0b2c-4c32-9a99-cb1d60364001" class=""><strong>In Summary:</strong> AI and data are intricately linked. Various algorithms, from basic statistical methods to advanced deep learning models, process this data to derive insights and make predictions. While data is invaluable for training these models, ethical considerations, especially concerning personal data, are paramount. Whether it&#x27;s corporations or data researchers, the responsible use of data is crucial.</p><p id="44645a89-274c-4ed0-a074-1d9e2cf16265" class="">
+</p><hr id="b5b6de19-fc42-4de4-b9d0-acd057afa496"/><h2 id="5e68abad-300c-48ec-baf6-9aad145c4887" class="">Overview of AI, ML &amp; DL</h2><br><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oNT1MrIhtKc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><blockquote id="d44c5fc5-7b50-4144-a2e3-14dda62fc35d" class="">Artificial Intelligence, Machine Learning, and Deep Learning have become the most talked-about technologies in today’s commercial world as companies are using these innovations to build intelligent machines and applications. And although these terms are dominating business dialogues all over the world, many people have difficulty differentiating between them.</blockquote><p id="c1ae4cdb-5d84-4f76-9a09-5e300c242af1" class="">
+</p><ol type="1" id="b3863dc2-3c48-4279-9710-85616806a7ba" class="numbered-list" start="1"><li><strong>What are AI, ML, and Deep Learning?</strong></li></ol><ol type="1" id="abfe9f23-ee16-4613-857b-5a4598a26a76" class="numbered-list" start="2"><li><strong>Difference between AI, ML &amp; DL</strong></li></ol><p id="3cc46457-e814-4ae7-82b6-98e34d47ed39" class="">
+</p><p id="c6a6b062-e829-4d9e-9b04-c10748269b0d" class=""><strong>Let&#x27;s break it down:</strong></p><p id="34641683-3000-4667-bfd6-36058d5d4105" class="">
+</p><ol type="1" id="31a8d208-6e25-4e4a-aaab-108eca4b3209" class="numbered-list" start="1"><li><strong>What are AI, ML, and Deep Learning?</strong><ul id="5c4b4a5a-e207-45a5-aa51-116339a9c0f8" class="bulleted-list"><li style="list-style-type:disc"><strong>AI (Artificial Intelligence):</strong> <p id="a87564fc-bf6d-415b-a721-959c6c6fb910" class=""><mark class="highlight-gray_background">The science of making machines perform tasks that would require human intelligence. This includes problem-solving, understanding languages, and decision-making.</mark></p></li></ul><ul id="6772dde6-b4f5-478a-8a0e-ecc24a6b6d67" class="bulleted-list"><li style="list-style-type:disc"><strong>ML (Machine Learning):</strong> <p id="1fb77659-d1d0-46d8-b0e8-de08bb372405" class=""><mark class="highlight-gray_background">A subset of AI where algorithms allow machines to improve at tasks with experience. It&#x27;s data-driven, meaning the machine gets better as it processes more data.</mark></p></li></ul><ul id="b87a82de-e0d5-4c74-97e8-eedc32257646" class="bulleted-list"><li style="list-style-type:disc"><strong>Deep Learning:</strong> <p id="85ba47c3-de13-4c8a-80d7-e462b732d53b" class=""><mark class="highlight-gray_background">A type of ML inspired by the structure of the human brain. It uses &quot;neural networks&quot; with many layers to analyze various factors of data.</mark></p></li></ul><p id="9e4d8154-2978-4dcd-9640-ec93db35bcea" class="">
+</p></li></ol><ol type="1" id="16bc0b29-4fc1-43aa-83f6-4a7c7d528cc5" class="numbered-list" start="2"><li><strong>Difference between AI, ML &amp; DL:</strong><ul id="09f83d29-9013-4e4d-b565-cdf62bbd8eb2" class="bulleted-list"><li style="list-style-type:disc"><strong>AI:</strong> <p id="27e287b1-d148-4d0f-a981-d2ac9d919fb9" class=""><mark class="highlight-gray_background">The overarching goal to create machines that can simulate human intelligence.</mark></p></li></ul><ul id="151adfd6-94db-4090-8422-9c83191dc794" class="bulleted-list"><li style="list-style-type:disc"><strong>ML:</strong> <p id="fe614226-6286-44ad-87bb-899a2e3d393e" class=""><mark class="highlight-gray_background">An approach to achieve AI where the machine learns patterns from data without being explicitly programmed for specific tasks.</mark></p></li></ul><ul id="43bf907e-69fc-4f5a-bd37-ad53d97dcffc" class="bulleted-list"><li style="list-style-type:disc"><strong>DL:</strong> <p id="f96050e2-ff1d-471c-8b74-dd0efb53cc09" class=""><mark class="highlight-gray_background">A deeper dive into ML, using neural networks to process complex data like images and sound, making it closer to how our brains understand the world.</mark></p></li></ul><p id="d081368a-608e-4cae-805a-8040eff71753" class="">
+</p></li></ol><p id="52c8cbed-866c-4e08-8e94-3168edc39ab7" class="">In essence, while all these terms revolve around making machines smarter, they represent different layers and approaches within the broad field of artificial intelligence.</p><p id="b1116a79-e2c6-4617-8881-2522a0a1cff0" class="">
+</p><h3 id="bc6961ea-508f-4dbc-b321-c79e5c4dbe16" class="">The more simple explanation:</h3><p id="bdd15681-717d-46c8-9338-1d14e41cebec" class="">
+</p><ol type="1" id="f238c2a6-5b3c-4547-abe2-0328ded360e7" class="numbered-list" start="1"><li><strong>What are AI, ML, and Deep Learning?</strong><ul id="6b9bf345-e9fe-4a90-8225-533cce3613fd" class="bulleted-list"><li style="list-style-type:disc"><strong>AI (Artificial Intelligence):</strong> <p id="4411e96b-9d1b-4c26-919e-e1c5be59cf63" class=""><mark class="highlight-gray_background">It&#x27;s like giving machines a brain so they can think and act a bit like humans. For example, a robot vacuum that can navigate around your house on its own.</mark></p></li></ul><ul id="8bbfd3be-daa5-47c0-99a5-3eae729a5392" class="bulleted-list"><li style="list-style-type:disc"><strong>ML (Machine Learning):</strong> <p id="d834a499-7a09-4b1f-b6f9-02c11136cb48" class=""><mark class="highlight-gray_background">This is like teaching the machine to learn from experience. Imagine teaching a computer to play and get better at chess by playing many games.</mark></p></li></ul><ul id="3c997ace-c6c5-41a7-90cb-d42c43f0267c" class="bulleted-list"><li style="list-style-type:disc"><strong>Deep Learning:</strong> <p id="5afa7211-9bc2-4ddc-a116-58db1f121e8f" class=""><mark class="highlight-gray_background">Think of this as a special way machines learn, kind of like how our brain works. It&#x27;s especially good at understanding things like pictures and voices.</mark></p></li></ul><p id="9ce88e6d-4996-4eb7-a974-17bbd749fe59" class="">
+</p></li></ol><ol type="1" id="8a91fd61-4ac2-4b0e-b5cd-6e71e2491ed0" class="numbered-list" start="2"><li><strong>Difference between AI, ML &amp; DL:</strong><ul id="90d53527-7482-42ff-b64a-245393fea186" class="bulleted-list"><li style="list-style-type:disc"><strong>AI:</strong> <p id="6dcb6e59-26e8-460a-9c6d-fe24a5be3187" class=""><mark class="highlight-gray_background">The big idea of making machines smart.</mark></p></li></ul><ul id="c58f3f63-ca38-4bc0-a98a-1629b002669b" class="bulleted-list"><li style="list-style-type:disc"><strong>ML:</strong> <p id="167eecea-4731-4e6c-a700-a6f608209fdf" class=""><mark class="highlight-gray_background">A way to achieve AI where machines learn from data.</mark></p></li></ul><ul id="db73eb6a-6564-4c41-9857-0a12cfc3d16e" class="bulleted-list"><li style="list-style-type:disc"><strong>DL:</strong> <p id="332bbab3-cbe0-4e02-9448-145a497793a2" class=""><mark class="highlight-gray_background">A specific method within ML, using structures inspired by the human brain to process data.</mark></p></li></ul></li></ol><p id="aee40fba-c369-4d11-bd89-5a2478662783" class="">
+</p><p id="c7a3ab0e-008a-4030-93d9-58f0d9a2f4ba" class=""><strong>Summary: </strong><mark class="highlight-orange_background">ML is the subset of AI. DL is the subset of ML</mark>. AI is a computer algorithm which exhibits intelligence through decision making. ML is an AI algorithm which allows system to learn from data. As you can see in the image below:</p><p id="13c25f1a-e15a-451b-9272-9649e00027fa" class="">                                                </p><figure id="0f2b3859-d3a3-410e-bc83-eeffa8ce8c70" class="image" style="text-align:center"><a href="images/AI-ML-DL.svg.png"><img style="width:384px" src="images/AI-ML-DL.svg.png"/></a><figcaption>As you can see in this image, ML is subset of AI and DL is a subset of ML  </figcaption></figure><p id="a80b179a-8a11-4024-a128-d977867ea977" class="">                                                        <strong>                         </strong></p><p id="a00f5933-b88d-4009-ae1d-088f793dbfbe" class="">
+</p><hr id="35ac9d94-c0ef-4d71-b7a3-56dc992a8784"/><p id="0b5b9fb0-ac4c-417b-9e09-b81127af2123" class="">                                                                               <div class="indented"><h2 id="a22a1c76-8595-4a77-967b-a2c1ae949cec" class="">Overview of NLP(Natural Language Processing):</h2></div></p><br><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/g6U9Y-E87vg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p id="8c648770-98a7-482e-bfa9-6a1e8159e6ec" class=""><br><strong>lets understand it in easy terms:</strong></p><ol type="1" id="11039b4b-45d8-4483-b38b-34e0a7308715" class="numbered-list" start="1"><li><strong>What is Natural Language Processing (NLP)?</strong><ul id="a63a8009-4d48-4b48-a4f3-bec9b4e157ef" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">It&#x27;s like teaching computers to understand and speak human language. Imagine if your computer could understand jokes or stories!</mark></li></ul><p id="d324128f-07e2-4c91-8d05-e030a34bb644" class="">
+</p></li></ol><ol type="1" id="9c9ee86d-2f00-408e-bbc6-5e15e1ef88d9" class="numbered-list" start="2"><li><strong>How do NLP algorithms function?</strong><ul id="39a91931-6cbe-4d7c-affa-3c34a7d2ac28" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Think of NLP algorithms as translators. They take human language, break it down, and translate it into a language computers can understand.</mark></li></ul><p id="cd7ebbc6-a3ad-4d4c-825a-200df8aed08b" class="">
+</p></li></ol><ol type="1" id="e3c1b2f5-6311-43b1-8e4c-565c83118198" class="numbered-list" start="3"><li><strong>What are its major categorizations?</strong><ul id="a242ac83-79a6-48a0-bdeb-10441f1dce24" class="bulleted-list"><li style="list-style-type:disc">It&#x27;s like sorting toys into different boxes. NLP can be sorted into:<ul id="4e976d10-783a-4b5c-873c-cab11224d4e1" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-gray_background">Understanding language (like reading a book).</mark></li></ul><ul id="2b41afe9-dd98-4509-b8b6-1a44c68fe55b" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-gray_background">Generating language (like writing a story).</mark></li></ul><ul id="3ae34e8b-1f8f-45b7-b1d0-35bce54a9fff" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-gray_background">Translating between languages.</mark></li></ul><p id="e269b756-f0e5-4570-aa40-3eb09529e703" class="">
+</p></li></ul></li></ol><ol type="1" id="9c56bbef-93d7-42b0-8b19-0ffbefa03f49" class="numbered-list" start="4"><li><strong>What are its applications &amp; scope?</strong><ul id="8f4d09d6-2e3d-4dd7-9f7f-17023d447a29" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">From chatbots that chat with you online to voice assistants like Siri, NLP is everywhere! It&#x27;s also used to translate languages and even write poems.</mark></li></ul><p id="d789697d-8857-4a91-9c49-d52be6588d49" class="">
+</p></li></ol><ol type="1" id="1aeffb04-f098-4fde-9249-3942db30970e" class="numbered-list" start="5"><li><strong>What is Sentiment Analysis?</strong><ul id="7804d10b-aa2e-4bbb-8d00-0f8efd14fabf" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">It&#x27;s like understanding if a book is happy or sad. Sentiment analysis figures out if a piece of text has positive, negative, or neutral feelings.</mark></li></ul><p id="5c7e21e0-49a1-4608-9ecb-7cd9e204012d" class="">
+</p></li></ol><ol type="1" id="3719f9e9-fb8f-4145-b4f5-78406447abd9" class="numbered-list" start="6"><li><strong>How to make a career in NLP?</strong><ul id="12d22825-fe60-4d1f-b321-740ab87fc1c3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">It&#x27;s like becoming a language teacher for computers. You study languages, computers, and then teach computers to understand languages.</mark></li></ul><p id="de476bcb-b3af-4519-81be-826cc8fbfc90" class="">
+</p></li></ol><ol type="1" id="32ffba9f-81dc-4d7a-aafe-2b2dc8be8020" class="numbered-list" start="7"><li><strong>What is the roadmap to start NLP?</strong><ul id="77a1ce23-d65f-49f4-9dfd-9a2503eab09b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Start with learning a computer language, then study how humans speak, and finally, learn special tools to teach computers about human language.</mark></li></ul><p id="19d34736-69c6-4910-9eab-68dd74f739a3" class="">
+</p></li></ol><ol type="1" id="0cbe469f-285a-44c8-b905-4bf09009a6a8" class="numbered-list" start="8"><li><strong>Which programming languages are required to have a grip on NLP?</strong><ul id="1717ebb2-b3ed-41e7-acad-e8827015efcc" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Python is the most popular one. It&#x27;s like the universal language for teaching computers about human language.</mark></li></ul><p id="de1d8186-17bb-4bc1-aba9-0e7258af5bda" class="">
+</p></li></ol><p id="8fea16c0-f34f-4ef8-a0d7-dfcf84bf7344" class="">
+</p><p id="d39fa8a4-1c95-4091-8ce1-e6455654274a" class=""><strong>Now, try to understand the same thing in a technical manner:</strong></p><p id="0a46ce53-3e84-406f-af33-f10d2fa5396d" class="">
+</p><ol type="1" id="adb45727-7ce2-4969-be73-f729b77d6ece" class="numbered-list" start="1"><li><strong>What is Natural Language Processing (NLP)?</strong><ul id="23b5879c-062a-4585-9e8f-e7f417bf0486" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">NLP is a field of AI that focuses on the interaction between computers and humans through natural language. It enables machines to understand, interpret, and generate human language.</mark></li></ul><p id="11626adf-488c-4ea5-b296-36bcb9bdc07d" class="">
+</p></li></ol><ol type="1" id="3eab387d-c8ab-4348-9f13-63f2dbae9cf2" class="numbered-list" start="2"><li><strong>How do NLP algorithms function?</strong><ul id="aefd86c0-1a56-47c0-a336-ce4ec2e7795d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">NLP algorithms analyze text, break it into sentences, words, and even parts of speech. They use statistical methods and machine learning to find patterns and meanings in the text.</mark></li></ul><p id="4e3b4781-8feb-46c7-bfcb-572076435019" class="">
+</p></li></ol><ol type="1" id="32d1532d-f225-4f55-b097-f4a8b5396ed3" class="numbered-list" start="3"><li><strong>What are its major categorizations?</strong><ul id="eb7b11f4-4ca7-4968-ab61-23e053e83327" class="bulleted-list"><li style="list-style-type:disc"><strong>Syntax Analysis:</strong> <p id="0603e2b0-3eaa-4470-a7be-fa811300e156" class=""><mark class="highlight-gray_background">Understanding the structure of sentences.</mark></p></li></ul><ul id="43e288dc-c13a-4041-b8e1-eeb8f91d6c81" class="bulleted-list"><li style="list-style-type:disc"><strong>Semantic Analysis:</strong> <p id="a3c7fb10-8377-4664-a7fe-7a0909becf55" class=""><mark class="highlight-gray_background">Understanding the meaning of sentences.</mark></p></li></ul><ul id="40733c01-2380-4a32-8407-52e843bc6385" class="bulleted-list"><li style="list-style-type:disc"><strong>Pragmatic Analysis:</strong> <p id="68a666db-0901-4057-8f0b-cad49e70ad1e" class=""><mark class="highlight-gray_background">Understanding the context and intent behind sentences.</mark></p></li></ul><p id="81d272ff-0bd9-41fc-b4f2-acd2f9dd109e" class="">
+</p></li></ol><ol type="1" id="0fdbce7f-83b9-4d39-8781-14d4d997ea29" class="numbered-list" start="4"><li><strong>What are its applications &amp; scope?</strong><ul id="6e8693ee-39e2-4ae5-b974-5277bc093f5b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">NLP is used in chatbots, voice assistants, translation services, and text analysis tools, among others.</mark></li></ul><p id="a836c8f4-9cf1-4f7d-bf5d-dabffcbef495" class="">
+</p></li></ol><ol type="1" id="02af9bb8-469c-49f6-9024-20b65ed7899d" class="numbered-list" start="5"><li><strong>What is Sentiment Analysis?</strong><ul id="5e82dd0b-d6e7-4153-b4bb-e8c8d3e04b8a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">It&#x27;s a technique in NLP to determine the mood or sentiment behind a piece of text, be it positive, negative, or neutral.</mark></li></ul><p id="e6dc33af-0731-450f-934d-161278ee3a8f" class="">
+</p></li></ol><ol type="1" id="f2c42af1-98b6-4c6d-bfd4-7c0df50323db" class="numbered-list" start="6"><li><strong>How to make a career in NLP?</strong><ul id="6faeb1d5-2496-4e34-b553-e736c4d3193c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Start with a background in computer science or linguistics, then specialize in NLP through courses, projects, and research.</mark></li></ul><p id="e6bd9acb-2cb4-46fe-849f-af40e7b421af" class="">
+</p></li></ol><ol type="1" id="3eaf8bb4-3d7f-4117-8ef7-b27cf5e7b73f" class="numbered-list" start="7"><li><strong>What is the roadmap to start NLP?</strong><ul id="bfe0466b-3bd4-4745-a18d-7b28f5c3602a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Begin with foundational knowledge in programming and linguistics, followed by studying machine learning and diving deep into NLP techniques and tools.</mark></li></ul><p id="126065e0-93c9-45c6-abda-49826fa0d662" class="">
+</p></li></ol><ol type="1" id="280cef07-f779-4842-a9c7-ea6d9c6f047d" class="numbered-list" start="8"><li><strong>Which programming languages are required to have a grip on NLP?</strong><ul id="4341310d-0136-4ded-8a77-d147b373af89" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Python is the go-to language for NLP due to its extensive libraries and tools. Other languages like Java and R can also be useful.</mark></li></ul><p id="058a9fe6-e84b-42ff-94a5-a3e0c4affde6" class="">
+</p></li></ol><p id="8f1769d8-19bd-4b3d-97df-24c86de26634" class="">I hope the above explanation provides a comprehensive understanding of NLP and its facets!</p><p id="319f8403-adaa-4830-8243-36b0258b23ea" class=""> </p><p id="0bf0c1c2-c6e9-41af-bc33-62e3c450d68a" class="">
+</p><p id="72c1d91c-8f63-458c-9167-6b6fa91d4965" class=""><strong>Now, lets see what and how you can create innovative things  with your idea using NLP  </strong></p><br><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yvnswO2dLbA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p id="3ea0aae4-f21d-41d9-802e-16568b668c60" class=""><br><strong>First understand it in easy terms:</strong></p><ol type="1" id="8e8797c5-d5e2-44e5-9c15-473aaa55b633" class="numbered-list" start="1"><li><strong>Applications of NLP:</strong><ul id="24b4921c-b2de-4a75-b871-988b76e7f4d2" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Imagine if your computer could read books, understand them, and even chat with you about them. NLP lets computers understand and use human language. It powers things like chatbots, voice assistants, and even helps translate languages.</mark></li></ul><p id="2e88cb04-3d5e-4d3f-b791-d47ecc5f5eda" class="">
+</p></li></ol><ol type="1" id="48cebccc-afc3-4b59-90a9-05497e5b18c3" class="numbered-list" start="2"><li><strong>How can different ideas help you make a career in NLP?</strong><ul id="bdb18c07-ccd7-45f6-87cd-d254814810f4" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Think of NLP as a big playground. There are many games (or areas) to explore. By coming up with new ideas or improving existing ones, you can become a star player in this playground.</mark></li></ul><p id="25a3f9a7-4d17-4852-8b64-381d07e9c362" class="">
+</p></li></ol><ol type="1" id="c302f530-409f-44d6-b2f4-5ff7caca1ebe" class="numbered-list" start="3"><li><strong>Scope of Sentimental Analysis:</strong><ul id="9d39af7f-b653-496e-80f2-4cd49f67264a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">It&#x27;s like reading a friend&#x27;s message and knowing if they&#x27;re happy, sad, or angry. Sentiment analysis lets computers understand the feelings behind words. It&#x27;s used a lot in business to know what customers feel about products.</mark></li></ul><p id="08d18cab-a7e7-4849-845e-4ed0240075f0" class="">
+</p></li></ol><p id="5c8268ef-5d14-42d6-b796-0076c2e657fc" class="">
+</p><p id="15ffdf06-03d0-414c-aeef-bdcd72d7b2f7" class=""><strong>Now</strong>,<strong> understand the same thing in a technical manner: </strong></p><ol type="1" id="656582b6-7d37-40ca-ad5d-cabfe2525871" class="numbered-list" start="1"><li><strong>Applications of NLP:</strong><ul id="edcbb12b-704f-42d6-ab14-e0d504c61a46" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">NLP is used in various sectors, from healthcare to finance. It powers chatbots for customer service, analyzes vast amounts of text data for insights, aids in real-time translation, and even helps in content recommendation.</mark></li></ul><p id="ca85c300-6ed2-4ebf-a398-a7aa528df5b8" class="">
+</p></li></ol><ol type="1" id="5d0775ca-7fe6-437f-95fb-84aad8bca988" class="numbered-list" start="2"><li><strong>How can different ideas help you make a career in NLP?</strong><ul id="18524c4c-d76f-4adc-808d-ea47dd3b2595" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">The field of NLP is vast and evolving. By innovating or specializing in niche areas like emotion detection, sarcasm identification, or regional language processing, you can carve a unique career path. Research, development, and application are all avenues to explore.</mark></li></ul><p id="668c8172-5bbc-41b6-b817-7ad7174def47" class="">
+</p></li></ol><ol type="1" id="72890afc-9094-4864-b195-06e807170c2b" class="numbered-list" start="3"><li><strong>Scope of Sentimental Analysis:</strong><ul id="411ecdd8-4094-4620-ac2b-511baf14d6b9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray_background">Sentiment analysis is crucial for businesses to gauge customer sentiment. It&#x27;s used to analyze product reviews, social media chatter, and customer feedback. By understanding public sentiment, businesses can make informed decisions.</mark></li></ul><p id="da7c7abe-75ba-4385-8a93-68f597862ff6" class="">
+</p></li></ol><p id="193075f0-fae6-4589-9f85-31d9567cecf9" class="">In essence, NLP offers a plethora of opportunities across various domains, and its integration into business processes can lead to enhanced efficiency, analyze data, discover insights, automate time-consuming processes, and gain a competitive advantage.</p><p id="cadb64d3-6f47-42ef-ba08-2dce62e59026" class="">
+</p><p id="3d090100-23dd-45d8-b124-de7571041d3e" class=""><strong>by this this diagram you can understand it faster, after reading all of the key notes of this page just look carefully to this image:</strong><div class="indented"><figure id="c9b7077e-89c7-407b-97e3-31b17896b9d2" class="image"><a href="images/NLP.png"><img style="width:672px" src="images/NLP.png"/></a><figcaption>As you can see in the above image, NLP is also a part of AI just like ML and DL but as we understand in above explanations that NLP is a part of AI and it uses ML and it’s subset DL so the same thing happening in this image. </figcaption></figure><p id="899a58ba-f508-4e24-8b49-c2ad119edd11" class="">
+</p><p id="e48e3543-35cd-43a2-8956-59fa0cae51c3" class="">
+</p><p id="0e8c7931-af06-4b20-8bb1-4ae1b5479466" class=""><strong>I covered up all the things we should know about AI. Now, if you want to learn AI so we have a <mark class="highlight-yellow_background">free basic course</mark> here you can learn through it :</strong><div class="indented"><p id="c69ba915-7fc1-4513-9681-5202b047c400" class="">
+</p><iframe width="750" height="465" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLxf3-FrL8GzTIQpnY_UyzDX6JK0_Kbe_t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><p id="39eb805d-8230-41ca-9958-aca4adbf4674" class="">
+</p></div></p></div></p></div></article></body></html>
